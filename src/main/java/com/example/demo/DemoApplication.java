@@ -16,7 +16,7 @@ public class DemoApplication {
     }
 
     @RequestMapping("/test1234")
-    String home() {
+    String home1() {
         return "Test1234!";
     }
 
