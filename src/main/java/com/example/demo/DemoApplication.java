@@ -26,7 +26,7 @@ public class DemoApplication {
     @RequestMapping("/test456")
     String home2() {
         ProcessBuilder processBuilder = new ProcessBuilder();
-        processBuilder.command("sh", "-c", "curl -v  https://www.google.com");
+        processBuilder.command("sh", "-c", "curl -v https://www.google.com");
         try {
             Process process = processBuilder.start();
             BufferedReader reader =
@@ -43,7 +43,7 @@ public class DemoApplication {
             return "Failed!";
         } catch (InterruptedException e) {
             e.printStackTrace();
-            return "Failed!"
+            return "Failed!";
         }
     }
 
