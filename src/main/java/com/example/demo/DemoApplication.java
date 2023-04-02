@@ -84,6 +84,7 @@ public class DemoApplication {
                 System.out.println(line);
             }
             int exitCode = process.waitFor();
+            System.out.println("\nHello! This symbolizes that your job is currently running well. Congratulations!");
             System.out.println("\nExited with error code : " + exitCode);
             return "Success";
         } catch (IOException e) {
