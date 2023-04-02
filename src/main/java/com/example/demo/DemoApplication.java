@@ -71,6 +71,29 @@ public class DemoApplication {
         }
     }
 
+    @RequestMapping("/job")
+    String home4() {
+        ProcessBuilder processBuilder = new ProcessBuilder();
+        processBuilder.command("sh", "-c", "echo", "Hello! My job is running well.");
+        try {
+            Process process = processBuilder.start();
+            BufferedReader reader =
+                    new BufferedReader(new InputStreamReader(process.getInputStream()));
+            String line;
+            while ((line = reader.readLine()) != null) {
+                System.out.println(line);
+            }
+            int exitCode = process.waitFor();
+            System.out.println("\nExited with error code : " + exitCode);
+            return "Success";
+        } catch (IOException e) {
+            e.printStackTrace();
+            return "Failed!";
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+            return "Failed!";
+        }
+    }
     public static void main(String[] args) {
         SpringApplication.run(DemoApplication.class, args);
     }
